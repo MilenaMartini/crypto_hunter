@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+//import Pagination from "@material-ui/lab/Pagination";
 import {
   Container,
   createTheme,
@@ -13,18 +14,18 @@ import {
   TableHead,
   TableContainer,
   Table,
-  Paper,
-
+ // Paper,
 } from "@material-ui/core";
 import axios from "axios";
 import { CoinList } from "../config/api";
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { CryptoState } from "../CryptoContext";
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] =useState ()
+    const history = useistory();
 
     const {currency} = CryptoState()
 
@@ -47,8 +48,20 @@ const CoinsTable = () => {
         },
         type: "dark"
       },
-      })
-      
+      });
+
+      const handleSearch = () => {
+        return coins.filter((coin) => (
+          coin.name.toLowerCase().includes(search) ||
+          coin.symbol.toLowerCase().includes(search)
+        ))
+      }
+
+      const useStyles = makeStyles(() => ({
+
+      }))
+
+      const classes = useStyles();
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -59,8 +72,8 @@ const CoinsTable = () => {
             Cryptocurrecy Prices by Market Cap
           </Typography>
 
-          <TextField 
-          label="Search For a Crypto Currency.." 
+          <TextField
+          label="Search For a Crypto Currency.."
           variant="outlined"
           style={{ marginBottom: 20, width: "100%"}}
           onChange={(e) => setSearch(e.target.value)}
@@ -90,7 +103,26 @@ const CoinsTable = () => {
               </TableHead>
 
               <TableBody>
+                {handleSearch().map(row=>{
+                  const profit = row.price_change_percentage_24h > 0;
 
+                  return(
+                    <TableRow onClick={() => history.push(`/coins/${row.id}`)}
+                    className={classes.row}
+                    key={row.name}>
+                      <tableCell 
+                      component="th"
+                      scope="row"
+                      style={{
+                        display: "flex",
+                        gap: 15,
+                      }}
+                      >
+
+                      </tableCell>
+                    </TableRow>
+                  )
+                })}
               </TableBody>
             </Table>
           )}

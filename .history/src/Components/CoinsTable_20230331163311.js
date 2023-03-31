@@ -47,8 +47,14 @@ const CoinsTable = () => {
         },
         type: "dark"
       },
-      })
-      
+      });
+
+      const handleSearch = () => {
+        return coins.filter((coin) => (
+          coin.name.toLowerCase().includes(search) ||
+          coin.name.toLowerCase().includes
+        ))
+      }
 
   return (
     <ThemeProvider theme={darkTheme}>

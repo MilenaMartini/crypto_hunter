@@ -48,7 +48,12 @@ const CoinsTable = () => {
         type: "dark"
       },
       })
-      
+
+      const handleSearch = () => {
+        return coins.filter((coins) => (
+          
+        ))
+      }
 
   return (
     <ThemeProvider theme={darkTheme}>
