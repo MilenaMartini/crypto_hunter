@@ -48,13 +48,9 @@ const CoinsTable = () => {
   });
 
   const handleSearch = () => {
-    return coins.filter((coin) => (
-      coin.name.toLowerCase().includes(search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(search.toLowerCase())
-    ));
+    return coins;
   };
-//mor vo da uma olha no codigo c o pv aqui blz?
-//blz a vo upa pro git 
+
   const useStyles = makeStyles(() => ({
     row: {
       cursor: "pointer",

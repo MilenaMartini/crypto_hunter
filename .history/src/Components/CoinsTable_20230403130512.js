@@ -53,8 +53,7 @@ const CoinsTable = () => {
       coin.symbol.toLowerCase().includes(search.toLowerCase())
     ));
   };
-//mor vo da uma olha no codigo c o pv aqui blz?
-//blz a vo upa pro git 
+//mor 
   const useStyles = makeStyles(() => ({
     row: {
       cursor: "pointer",

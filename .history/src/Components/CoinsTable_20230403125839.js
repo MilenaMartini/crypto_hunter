@@ -18,6 +18,7 @@ import axios from "axios";
 import { CoinList } from "../config/api";
 import {useNavigate } from 'react-router-dom';
 import { CryptoState } from "../CryptoContext";
+//vo upa pro git
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -53,8 +54,7 @@ const CoinsTable = () => {
       coin.symbol.toLowerCase().includes(search.toLowerCase())
     ));
   };
-//mor vo da uma olha no codigo c o pv aqui blz?
-//blz a vo upa pro git 
+
   const useStyles = makeStyles(() => ({
     row: {
       cursor: "pointer",

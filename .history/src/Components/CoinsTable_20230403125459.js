@@ -53,8 +53,7 @@ const CoinsTable = () => {
       coin.symbol.toLowerCase().includes(search.toLowerCase())
     ));
   };
-//mor vo da uma olha no codigo c o pv aqui blz?
-//blz a vo upa pro git 
+
   const useStyles = makeStyles(() => ({
     row: {
       cursor: "pointer",
@@ -106,6 +105,8 @@ const CoinsTable = () => {
               <TableBody>
                 {handleSearch().map((row) => {
                   const profit = row.price_change_percentage_24h > 0;
+//falaram de alg sobre requisçãoçao axios
+// ent isso eu tinha falado, vou confirmar um ngc aqui q foi? 
                   return (
                     <TableRow
                       onClick={() => navigate(`/coins/${row.id}`)}

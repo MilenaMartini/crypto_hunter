@@ -54,7 +54,6 @@ const CoinsTable = () => {
     ));
   };
 //mor vo da uma olha no codigo c o pv aqui blz?
-//blz a vo upa pro git 
   const useStyles = makeStyles(() => ({
     row: {
       cursor: "pointer",
