@@ -35,7 +35,6 @@ const darkTheme = createTheme({
 
 function Header() {
   const classes = useStyles();
-  const { currency, setCurrency } = CryptoState();
 
   const navigate = useNavigate();
 
@@ -51,15 +50,13 @@ function Header() {
             >
               Crypto Hunter
             </Typography>
-
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={currency}
+              defaultValue={"USD"}
               style={{ width: 100, height: 40, marginLeft: 15 }}
-              onChange={(e) => setCurrency(e.target.value)}
-              >
+            >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"BRL"}>BRL</MenuItem>
             </Select>

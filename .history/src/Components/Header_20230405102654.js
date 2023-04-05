@@ -55,8 +55,7 @@ function Header() {
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={currency}
+              id="demo-simple-select"value
               style={{ width: 100, height: 40, marginLeft: 15 }}
               onChange={(e) => setCurrency(e.target.value)}
               >

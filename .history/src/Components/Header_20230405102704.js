@@ -56,7 +56,7 @@ function Header() {
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={currency}
+              value={curr}
               style={{ width: 100, height: 40, marginLeft: 15 }}
               onChange={(e) => setCurrency(e.target.value)}
               >
