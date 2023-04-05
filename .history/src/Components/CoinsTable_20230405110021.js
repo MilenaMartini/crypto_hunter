@@ -1,71 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Pagination from '@material-ui/lab/Pagination';
-import { Container, createTheme, TableCell, LinearProgress, ThemeProvider, Typography, TextField, TableBody, TableRow, TableHead, TableContainer, Table,} from "@material-ui/core";
-import axios from "axios";
-import { CoinList } from "../config/api";
-import {useNavigate } from 'react-router-dom';
-import { CryptoState } from "../CryptoContext";
 
-export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-const useStyles = makeStyles((theme) => ({
-
-  row: {
-    backgroundColor: "#16171a",
-    cursor: "pointer",
-    "&:hover": {
-      backgroundColor: "#131111",
-      borderBottom: "solid gold"
-    },
-    fontFamily: "Montserrat",
-  },
-  pagination: {
-    "& .MuiPaginationItem-root": {
-      color: "gold",
-    },
-  },
-
-}));
-
-const CoinsTable = () => {
-  const classes = useStyles();
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
-
-  const {currency, symbol} = CryptoState();
-
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-
-    setCoins(data);
-    setLoading(false);
-  };
-  useEffect (() => {
-    fetchCoins();
-  }, [currency]);
-
-  const darkTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#111",
-      },
-      type: "dark",
-    },
-  });
-
-  const handleSearch = () => {
-    return coins.filter((coin) => (
-      coin.name.toLowerCase().includes(search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(search.toLowerCase())
-    ));
-  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -115,7 +48,7 @@ const CoinsTable = () => {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
                     <TableRow
-                    onClick={() => navigate(`/coins/${row.id}`)}
+                    onClick={() => navigate.push(`/coins/${row.id}`)}
                     className={classes.row}
                     key={row.name}
                   >

@@ -12,7 +12,6 @@ export function numberWithCommas(x) {
 }
 
 const useStyles = makeStyles((theme) => ({
-
   row: {
     backgroundColor: "#16171a",
     cursor: "pointer",
@@ -115,7 +114,7 @@ const CoinsTable = () => {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
                     <TableRow
-                    onClick={() => navigate(`/coins/${row.id}`)}
+                    onClick={() => navigate.push(`/coins/${row.id}`)}
                     className={classes.row}
                     key={row.name}
                   >

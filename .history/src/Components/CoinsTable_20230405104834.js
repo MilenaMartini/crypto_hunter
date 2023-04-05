@@ -11,7 +11,16 @@ export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const useStyles = makeStyles((theme) => ({
+const CoinsTable = () => {
+  const classes = useStyles();
+  const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+
+  const {currency, symbol} = CryptoState();
+  const useStyles = makeStyles((theme) => ({
 
   row: {
     backgroundColor: "#16171a",
@@ -30,15 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const CoinsTable = () => {
-  const classes = useStyles();
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const navigate = useNavigate();
 
-  const {currency, symbol} = CryptoState();
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -115,7 +116,7 @@ const CoinsTable = () => {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
                     <TableRow
-                    onClick={() => navigate(`/coins/${row.id}`)}
+                    onClick={() => navigate.push(`/coins/${row.id}`)}
                     className={classes.row}
                     key={row.name}
                   >
