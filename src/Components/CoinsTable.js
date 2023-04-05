@@ -54,7 +54,7 @@ const CoinsTable = () => {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#111",
+        main: "#fff",
       },
       type: "dark",
     },
