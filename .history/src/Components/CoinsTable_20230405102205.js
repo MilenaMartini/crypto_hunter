@@ -8,7 +8,7 @@ import {useNavigate } from 'react-router-dom';
 import { CryptoState } from "../CryptoContext";
 
 export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 const useStyles = makeStyles((theme) => ({

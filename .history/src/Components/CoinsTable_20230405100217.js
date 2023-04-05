@@ -8,7 +8,7 @@ import {useNavigate } from 'react-router-dom';
 import { CryptoState } from "../CryptoContext";
 
 export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(".", ",")
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pagination: {
     "& .MuiPaginationItem-root": {
-      color: "gold",
+      color: "white",
     },
   },
 
@@ -148,12 +148,12 @@ const CoinsTable = () => {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="right">
                       {symbol}{" "}
                       {numberWithCommas(row.current_price.toFixed(2))}
                     </TableCell>
                     <TableCell
-                      align="center"
+                      align="right"
                       style={{
                         color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                         fontWeight: 500,

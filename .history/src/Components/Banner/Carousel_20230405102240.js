@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export function numberWithCommas(x, type) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
 }
 
 const Carousel = () => {

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Pagination from '@material-ui/lab/Pagination';
-import { Container, createTheme, TableCell, LinearProgress, ThemeProvider, Typography, TextField, TableBody, TableRow, TableHead, TableContainer, Table,} from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';import { Container, createTheme, TableCell, LinearProgress, ThemeProvider, Typography, TextField, TableBody, TableRow, TableHead, TableContainer, Table,} from "@material-ui/core";
 import axios from "axios";
 import { CoinList } from "../config/api";
 import {useNavigate } from 'react-router-dom';
 import { CryptoState } from "../CryptoContext";
 
 export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(".", ",")
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pagination: {
     "& .MuiPaginationItem-root": {
-      color: "gold",
+      color: "white",
     },
   },
 
@@ -53,7 +52,7 @@ const CoinsTable = () => {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#111",
+        main: "#fff",
       },
       type: "dark",
     },
@@ -109,7 +108,7 @@ const CoinsTable = () => {
 
               <TableBody>
                 {handleSearch()
-                .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                 .slice((page - 1) * 10, (page - 1) * 10 + 10)
                 .map((row) => {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
@@ -148,12 +147,12 @@ const CoinsTable = () => {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="right">
                       {symbol}{" "}
                       {numberWithCommas(row.current_price.toFixed(2))}
                     </TableCell>
                     <TableCell
-                      align="center"
+                      align="right"
                       style={{
                         color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                         fontWeight: 500,
@@ -162,7 +161,7 @@ const CoinsTable = () => {
                       {profit && "+"}
                       {row.price_change_percentage_24h.toFixed(2)}%
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="right">
                       {symbol}{" "}
                       {numberWithCommas(
                         row.market_cap.toString().slice(0, -6)
