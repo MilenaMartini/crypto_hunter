@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { HistoricalChart } from "../config/api";
-import Chart from 'chart.js/auto';
-import { Line } from "react-chartjs-2";
+//import Chart from "react-chartjs-2";
+import { Line } from 'chart.js/auto';
 import { createTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { CircularProgress } from "@material-ui/core";
 import { CryptoState } from "../CryptoContext";

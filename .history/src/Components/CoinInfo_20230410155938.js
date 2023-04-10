@@ -63,7 +63,7 @@ const CoinInfo = ({ coin }) => {
           <CircularProgress style={{ color: "gold" }} size={250} thickness={1} />
         ) : (
           <>
-            <Line
+            {/* <Line
               data={{
                 labels: historicData.map((coin) => {
                   let date = new Date(coin[0]);
@@ -110,7 +110,7 @@ const CoinInfo = ({ coin }) => {
                   },
                 },
               }}
-            />
+            /> */}
           </>
         )}
       </div>
