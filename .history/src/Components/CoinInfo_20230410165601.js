@@ -102,7 +102,11 @@ const CoinInfo = ({ coin }) => {
               width: "100%",
             }}
           >
-            </div>
+            
+                {day.label}
+              </SelectButton>
+            ))}
+          </div>
         </>
       )}
     </div>

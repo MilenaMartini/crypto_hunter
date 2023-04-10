@@ -102,7 +102,18 @@ const CoinInfo = ({ coin }) => {
               width: "100%",
             }}
           >
-            </div>
+            {chartDays.map((day) => (
+              <SelectButton
+                key={day.value}
+                onClick={() => {setDays(day.value);
+                  setflag(false);
+                }}
+                selected={day.value === days}
+              >
+                {day.label}
+              </SelectButton>
+            ))}
+          </div>
         </>
       )}
     </div>
