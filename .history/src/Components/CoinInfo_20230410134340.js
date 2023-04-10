@@ -13,45 +13,40 @@ import { chartDays } from "../config/data";
 import { CryptoState } from "../CryptoContext";
 
 const useStyles = makeStyles((theme) => ({
-    container: {
-      width: "75%",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      marginTop: 25,
-      padding: 40,
-      [theme.breakpoints.down("md")]: {
-        width: "100%",
-        marginTop: 0,
-        padding: 20,
-        paddingTop: 0,
-      },
+  container: {
+    width: "75%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 25,
+    padding: 40,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      marginTop: 0,
+      padding: 20,
+      paddingTop: 0,
     },
-  }));
-  
-const CoinInfo = ({ coin }) => {
-  const [historicData, setHistoricData] = useState();
-  const [days, setDays] = useState(1);
-  const { currency } = CryptoState();
-  const [flag,setflag] = useState(false);
+  },
+}));
 
-  
+const CoinInfo = ({ coin }) => {
+  const [historicData, setHistoricData] = useState([]);
+  const [days, setDays] = useState(1);
+  const [flag, setFlag] = useState(false);
+  const { currency } = CryptoState();
 
   const classes = useStyles();
 
   const fetchHistoricData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
-    setflag(true);
     setHistoricData(data.prices);
+    setFlag(true);
   };
-
-  console.log(coin);
 
   useEffect(() => {
     fetchHistoricData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days]);
+  }, [currency, days]);
 
   const darkTheme = createTheme({
     palette: {
@@ -65,12 +60,8 @@ const CoinInfo = ({ coin }) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
-        {!historicData | flag===false ? (
-          <CircularProgress
-            style={{ color: "gold" }}
-            size={250}
-            thickness={1}
-          />
+        {!historicData ? (
+          <CircularProgress style={{ color: "gold" }} size={250} thickness={1} />
         ) : (
           <>
             <Line
@@ -111,8 +102,9 @@ const CoinInfo = ({ coin }) => {
               {chartDays.map((day) => (
                 <SelectButton
                   key={day.value}
-                  onClick={() => {setDays(day.value);
-                    setflag(false);
+                  onClick={() => {
+                    setDays(day.value);
+                    setFlag(false);
                   }}
                   selected={day.value === days}
                 >

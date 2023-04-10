@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   }));
-  
 const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
