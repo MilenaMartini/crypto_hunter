@@ -1,22 +1,19 @@
 # Detalhes do projeto
 Esse projeto analisa os valores atuais das cryptomoedas tanto em dolar quanto em real e oferece as informações organizadas em formato de tabela, além de oferecer os dados de cada moeda individualmente
 
-<details>
-    <summary>Tecnologias utilizadas</summary>
-        <ul>
-            <li> React Js </li>
-            <li> Material-ui </li>
-            <li> CoinGecko </li>
-        </ul>
+## Tecnologias utilizadas
 
-</details>
+<ul>
+<li> React Js </li>
+<li> Material-ui </li>
+<li> CoinGecko </li>
+</ul>
 
 
-<details>
-    <summary>Vídeo Base</summary>
-      https://youtu.be/QA6oTpMZp84
 
-</details>
+## Vídeo Base
+
+- https://youtu.be/QA6oTpMZp84
 
 # Imagens do projeto
 
@@ -29,8 +26,6 @@ Esse projeto analisa os valores atuais das cryptomoedas tanto em dolar quanto em
 ![0747716d-0c93-4d64-b344-acd7aa9a36da](https://user-images.githubusercontent.com/84812552/233451388-2bda09f1-d5f0-4bca-8f2f-781f1ef68d13.jpg)
 
 ![31c76f1c-87b4-40fa-907e-2a53523cf27d](https://user-images.githubusercontent.com/84812552/233451398-42a7bcff-01e4-4bd3-a311-12d188034728.jpg)
-
-![511c2c47-5c0d-469c-a46a-45582b0270f0](https://user-images.githubusercontent.com/84812552/233451461-d57e5f8d-9d7a-4b8b-8b15-39ae04586203.jpg)
 
 </details>
 
